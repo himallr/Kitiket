@@ -9,8 +9,11 @@ import cors from "cors";
 import path from "path";
 const app = express();
 dotenv.config();
-
-app.use(cors());
+app.use(cors({
+    origin: ["https://kitiket-frontend.vercel.app"],
+    methods: ["POST", "GET"],
+    credentials: true
+}));
 app.use(express.json());
 
 app.use("/user", userRouter)
@@ -34,7 +37,7 @@ app.use("/booking", bookingRouter);
 
 //(req,res,next)->callback function
 mongoose
-    .connect(`mongodb+srv://himallr:${process.env.MONGODB_PASSWORD}@cluster0.kb0j2oy.mongodb.net/?retryWrites=true&w=majority`)
+    .connect(`mongodb+srv://himallr:${process.env.MONGODB_PASSWORD}@cluster0.kb0j2oy.mongodb.net/test?retryWrites=true&w=majority`)
     .then(() =>
         app.listen(3001, () => console.log("Listening to port 3001"))
     )
