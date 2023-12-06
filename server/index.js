@@ -37,7 +37,7 @@ app.use("/booking", bookingRouter);
 
 //(req,res,next)->callback function
 mongoose
-    .connect(`mongodb+srv://himallr:${process.env.MONGODB_PASSWORD}@cluster0.kb0j2oy.mongodb.net/test?retryWrites=true&w=majority`)
+    .connect('mongodb+srv://himallr:0IBV3VHnNSE12T5v@cluster0.kb0j2oy.mongodb.net/test?retryWrites=true&w=majority')
     .then(() =>
         app.listen(3001, () => console.log("Listening to port 3001"))
     )
