@@ -67,7 +67,7 @@ export const loginAdmin = async (req, res, next) => {
         if (isPasswordCorrect) {
 
             //jwt.sign(payload, secretOrPrivateKey, [options, callback])
-            const token = jwt.sign({ id: existadmin._id }, process.env.SECRET_KEY, {
+            const token = jwt.sign({ id: existadmin._id }, MYSECRET, {
                 expiresIn: "7d",
             })
 
