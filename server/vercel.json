@@ -1,22 +1,22 @@
 {
-  "version" : 2,
-  "builds":[
-    { "src":"*.js", "use":"@vercel/node" }
+  "version": 2,
+  "builds": [
+    { "src": "*.js", "use": "@vercel/node" }
   ],
   "routes": [
     {
-    "src":"/(.*)",
-    "dest": "/"
+      "src": "/(.*)",
+      "dest": "/"
     },
     {
-    "/movie/*": {
+      "src": "/movie/(.*)",
       "methods": ["DELETE"],
       "headers": {
         "Access-Control-Allow-Origin": "https://kitiket-frontend.vercel.app",
         "Access-Control-Allow-Methods": "DELETE",
         "Access-Control-Allow-Headers": "Content-Type"
-      }
-    }
+      },
+      "dest": "/"
     }
   ]
 }
