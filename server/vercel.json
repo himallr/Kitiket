@@ -7,6 +7,16 @@
     {
     "src":"/(.*)",
     "dest": "/"
+    },
+    {
+    "/movie/*": {
+      "methods": ["DELETE"],
+      "headers": {
+        "Access-Control-Allow-Origin": "https://kitiket-frontend.vercel.app",
+        "Access-Control-Allow-Methods": "DELETE",
+        "Access-Control-Allow-Headers": "Content-Type"
+      }
+    }
     }
   ]
 }
