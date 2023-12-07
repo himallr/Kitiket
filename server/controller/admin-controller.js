@@ -59,8 +59,10 @@ export const loginAdmin = async (req, res, next) => {
     catch (e) {
         console.log("Admin not found");
     }
+    console.log("above exist admin" + process.env.SECRET_KEY);
 
     if (existadmin) {
+        console.log("below exist admin" + process.env.SECRET_KEY);
 
         const isPasswordCorrect = bcrypt.compareSync(password, existadmin.password);
 
