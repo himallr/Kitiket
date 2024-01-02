@@ -66,7 +66,7 @@ export const getBooking = async (req, res, next) => {
 export const getAllBookings = async (req, res, next) => {
     let bookings;
     try {
-        bookings = await Bookings.find();
+        bookings = await Bookings.find().populate("user movie");
         bookings = bookings.save();
 
     } catch (e) {
