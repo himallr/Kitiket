@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { IconButton, List, ListItem, ListItemText, Typography } from "@mui/material";
 import { deleteBooking, getMovies, getUserBooking, getUserbyId } from "./Api-helper";
 const Profileuser = () => {
+    const id=localStorage.getItem("userId")
     const navigate = useNavigate();
     const [user, setUser] = useState();
     const [bookings, setBookings] = useState([]);
@@ -22,7 +23,7 @@ const Profileuser = () => {
             .then((res) => { setUser(res.users); console.log(res.users.email); })
             .catch((e) => console.log(e))
 
-    }, []);
+    }, [id]);
     const handleDelete = (id) => {
         deleteBooking(id)
             .then(() => navigate("/"))
@@ -46,7 +47,7 @@ const Profileuser = () => {
                     border="1px solid #ccc"
                     borderRadius={10}
                 >
-                    Name: {bookings.length >= 0 && user.name}
+                    Name: {user && user.name}
                 </Typography>
                 <Typography
                     padding={1}
@@ -55,7 +56,7 @@ const Profileuser = () => {
                     border="1px solid #ccc"
                     borderRadius={10}
                 >
-                    Email: {bookings.length >= 0 && user.email}
+                    Email: {user && user.email}
                 </Typography>
             </Box>}
             <Box width="70%" display="flex" flexDirection={"column"}>
@@ -84,7 +85,7 @@ const Profileuser = () => {
                                     <ListItemText
                                         sx={{ margin: 1, width: "100px", textAlign: "left" }}
                                     >
-                                        Movie: {booking.movie.name}
+                                        Movie: {booking.movie && booking.movie.title}
                                     </ListItemText>
                                     <ListItemText
                                         sx={{ margin: 1, width: "100px", textAlign: "left" }}
