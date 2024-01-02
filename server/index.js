@@ -11,7 +11,7 @@ const app = express();
 dotenv.config();
 app.use(cors({
     origin: ["https://kitiket-frontend.vercel.app"],
-    methods: ["POST", "GET"],
+    methods: ["POST", "GET","PUT","DELETE"],
     credentials: true
 }));
 app.use(express.json());
