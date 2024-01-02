@@ -99,5 +99,5 @@ export const deleteMovie = async (req, res, next) => {
     if (!movie) {
         return res.send(500).json({ message: "Invalid User" });
     }
-    return res.status(201).json({ message: "Movie Deleted" });
+    return res.status(200).json({ message: "Movie Deleted" });
 }
